@@ -1,6 +1,7 @@
 package com.example.dto;
 
 import lombok.Data;
+import lombok.NonNull;
 
 /**
  * @author SumMer
@@ -12,6 +13,7 @@ import lombok.Data;
 @Data
 public class IndexDTO {
 
+    @NonNull
     private String name;
 
     private String sex;
