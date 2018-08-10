@@ -20,7 +20,7 @@ public class IndexController {
     @RequestMapping("/index")
     public String index(Map<String, Object> map) {
 
-        IndexDTO indexDTO = new IndexDTO();
+        IndexDTO indexDTO = new IndexDTO("Spring Boot");
         indexDTO.setName("Spring Boot");
         map.put("name", indexDTO.getName());
         return "index";
