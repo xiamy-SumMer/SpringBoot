@@ -21,7 +21,7 @@ public class IndexController {
     public String index(Map<String, Object> map) {
 
         IndexDTO indexDTO = new IndexDTO("Spring Boot");
-        indexDTO.setName("Spring Boot");
+        // indexDTO.setName("Spring Boot");
         map.put("name", indexDTO.getName());
         return "index";
     }
