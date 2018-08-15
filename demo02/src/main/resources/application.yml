@@ -1,0 +1,8 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/ # 页面默认前缀目录
+      suffix: .jsp # 响应页面默认后缀
+#修改端口号
+server:
+  port: 9099
