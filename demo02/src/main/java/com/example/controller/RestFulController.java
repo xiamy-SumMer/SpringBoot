@@ -26,6 +26,7 @@ import java.util.Map;
 @RestController
 public class RestFulController {
 
+    private static final String PERSON = "PERSON";
 
     /**
      * 获取全部人员信息
@@ -38,7 +39,7 @@ public class RestFulController {
         List<TeamDTO> teamDTOList = new ArrayList<>();
         teamDTOList.add(new TeamDTO("小分队"));
         Map<String, Object> map = new HashMap<>(16);
-        map.put("PERSON", new PersonDTO("0001", "小白", "DQ", "综合", teamDTOList));
+        map.put(PERSON, new PersonDTO("0001", "小白", "DQ", "综合", teamDTOList));
         return map;
     }
 
@@ -67,26 +68,26 @@ public class RestFulController {
     public Map<String, Object> createPerson(@RequestBody PersonDTO personDTO) {
 
         Map<String, Object> map = new HashMap<>(16);
-        map.put("PERSON", personDTO);
+        map.put(PERSON, personDTO);
         return map;
     }
 
     /**
      * 获取指定人员
      *
-     * @param personid
+     * @param personId
      * @return
      */
-    @GetMapping("person/{personid}")
-    public Map<String, Object> person(@PathVariable String personid) {
+    @GetMapping("person/{personId}")
+    public Map<String, Object> person(@PathVariable String personId) {
 
         List<PersonDTO> list = this.personList();
         for (PersonDTO person : list) {
-            if (personid.equals(person.getPersonid())) {
+            if (personId.equals(person.getPersonid())) {
                 Map<String, Object> map = new HashMap<>(16);
                 map.put("RESULT", "获取指定人员");
                 map.put("MSG", "SUCCESS");
-                map.put("PERSON", person);
+                map.put(PERSON, person);
                 return map;
             }
         }
@@ -96,19 +97,19 @@ public class RestFulController {
     /**
      * 删除
      *
-     * @param personid
+     * @param personId
      * @return
      */
-    @DeleteMapping("person/{personid}")
-    public Map<String, Object> deletePerson(@PathVariable String personid) {
+    @DeleteMapping("person/{personId}")
+    public Map<String, Object> deletePerson(@PathVariable String personId) {
 
         List<PersonDTO> list = this.personList();
         for (PersonDTO person : list) {
-            if (personid.equals(person.getPersonid())) {
+            if (personId.equals(person.getPersonid())) {
                 Map<String, Object> map = new HashMap<>(16);
                 map.put("RESULT", "删除人员");
                 map.put("MSG", "SUCCESS");
-                map.put("PERSON", person);
+                map.put(PERSON, person);
                 return map;
             }
 
