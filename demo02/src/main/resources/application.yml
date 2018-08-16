@@ -3,6 +3,19 @@ spring:
     view:
       prefix: /WEB-INF/jsp/ # 页面默认前缀目录
       suffix: .jsp # 响应页面默认后缀
+  jackson:
+    date-format: yyyy-MM-dd #格式时间
+    time-zone: GMT+8 #增加时区，否则默认为格林标准时间
+    serialization:
+      write-dates-as-timestamps: false #使用数值timestamp表示日期，true时会忽略date-format
+
 #修改端口号
 server:
   port: 9099
+#日志配置
+logging:
+  file: target/app.log
+  level:
+    ROOT: info
+    cn.devmgr: trace
+    cn.devmgr.tutorial.springboot.dao: warn
