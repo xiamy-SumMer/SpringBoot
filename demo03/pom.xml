@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>demo03</name>
-    <description>Demo project for Spring Boot</description>
+    <description>全局捕获异常、整合log日志、使用AOP统一处理WEB请求</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -30,6 +30,12 @@
             <artifactId>lombok</artifactId>
             <version>1.16.22</version>
         </dependency>
+        <!-- aop -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
