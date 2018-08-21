@@ -1,2 +1,10 @@
 server:
   port: 9099
+
+#日志配置
+logging:
+  level:
+    ROOT: warn #指定全局的日志级别
+    com.example.aop: info #指定包的日志级别
+    com.example.exception.GlobalExceptionHandler: debug #指定类的日志级别
+  file: target/logs/app.log #输出的日志文件

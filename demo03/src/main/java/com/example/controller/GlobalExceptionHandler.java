@@ -1,6 +1,8 @@
-package com.example.exception;
+package com.example.controller;
 
 import com.example.dto.ErrorInfo;
+import com.example.exception.MyException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -17,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @date 2018-08-20 10:23
  */
 @ControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     /**
@@ -31,6 +34,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) {
 
+        log.error("ERROR：", e);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("message", e.getMessage());
         modelAndView.addObject("requestUrl", req.getRequestURL());
